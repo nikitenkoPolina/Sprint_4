@@ -12,7 +12,11 @@ public class Account {
     Pattern pattern = Pattern.compile("(?=(^\\S+\\s\\S+$))(.{3,19})");
 
     public boolean checkNameToEmboss() {
-        Matcher matcher = pattern.matcher(name);
-        return matcher.matches();
+        try {
+            Matcher matcher = pattern.matcher(name);
+            return matcher.matches();
+        } catch (NullPointerException e) {
+            return false;
+        }
     }
 }

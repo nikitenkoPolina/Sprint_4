@@ -14,7 +14,7 @@ public class NameToEmbossTest {
         this.expected = expected;
     }
 
-    @Parameterized.Parameters(name = "Тестовые данные: {0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}, {9}, {10}, {11}, {12}")
+    @Parameterized.Parameters(name = "Тестовые данные: {0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}, {9}, {10}, {11}, {12}, {13}")
     public static Object[][] getNameData() {
         return new Object[][]{
                 {"Xxxxxx Xxxxxxxxx", true}, // длина name в границах допустимого диапазона 3-19
@@ -28,7 +28,8 @@ public class NameToEmbossTest {
                 {"Xxx Xxxxx ", false}, // name содержит пробел в конце строки
                 {"Xxx  Xxxxx", false}, // name содержит 2 пробела подряд
                 {"XxxXxxxx", false}, // name не содержит пробелов
-                {"", false}
+                {"", false},
+                {null, false}
         };
     }
 
@@ -39,3 +40,4 @@ public class NameToEmbossTest {
         Assert.assertEquals(expected, actual);
     }
 }
+
